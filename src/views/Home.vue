@@ -1,18 +1,19 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <wql_table></wql_table>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import wql_table from '@/components/table.vue'
+
+
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+  wql_table
   }
 }
 </script>
