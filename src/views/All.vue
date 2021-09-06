@@ -1,27 +1,80 @@
 <template>
   <el-container style="border: 1px solid gainsboro">
     <el-aside width="180px">
-      <w_nav path="/release"/>
+      <w_nav path="/all"/>
     </el-aside>
 
     <el-container style="height: 95vh;">
-      <el-header style="background-color:white" height="60px">
-<!--        下拉框-->
+      <el-header style="background-color:white" height="150px">
         <w_drop/>
 
-<!--        发布公事-->
-        <div style="margin-left: -900px;margin-top: 10px">
-          <el-button type="primary" @click="handleAdd" size="mini">发布公事</el-button>
+
+        <!--        筛选-->
+        <div style="margin: 20px;">
+
+          <div style="margin-left: -900px;margin-top: -10px">
+            <el-tag>按条件筛选</el-tag>
+          </div>
+
+          <!--        日期-->
+          <div style="margin-left: -500px;margin-top: -20px;">
+            <span class="demonstration" style="color: #99a9bf">日期</span> &nbsp;
+            <el-date-picker v-model="this.search.time" type="date" placeholder="选择日期" style="width: 190px"
+                            format="YYYY 年 MM 月 DD 日" value-format="YYYY/MM/DD" size="mini">
+            </el-date-picker>
+          </div>
+
+
+          <!--        类别-->
+          <div style="margin-left: -530px;margin-top: 20px;">
+            <span class="demonstration" style="color: #99a9bf">物品种类</span> &nbsp;
+            <el-select v-model="this.search.kind" placeholder="请选择" style="width: 190px" clearable="true" size="mini">
+              <el-option
+                  v-for="option in this.option1"
+                  :value="option"
+              >
+              </el-option>
+            </el-select>
+          </div>
+
+
+          <!--       关键词-->
+          <div style="margin-left:65px;margin-top: -25px">
+            <span class="demonstration" style="color: #99a9bf">关键词</span> &nbsp;
+            <el-input v-model="this.search.key" placeholder="请输入内容" style="width: 190px;" size="mini" clearable="true"></el-input>
+          </div>
+
+
+          <!--        类型-->
+          <div style="margin-left: 80px;margin-top: -80px;">
+            <span class="demonstration" style="color: #99a9bf">类型</span> &nbsp;
+            <el-select v-model="this.search.type" placeholder="请选择" style="width: 190px" clearable="true" size="mini">
+              <el-option
+                  v-for="option in this.option2"
+                  :value="option"
+              >
+              </el-option>
+            </el-select>
+          </div>
+
+
+          <!--        按钮-->
+          <div style="margin-left: 500px;margin-top: 25px">
+            <el-button type="primary" size="mini" @click="searchByCondition">查询</el-button>
+          </div>
+
         </div>
+
 
       </el-header>
       <el-main style="padding: 0px">
+<!--        表格-->
         <el-table
             row-key="id"
             fit="false"
             ref="filterTable"
             :data="tableData"
-            height="420px"
+            height="350px"
         >
           <el-table-column
               prop="id"
@@ -54,7 +107,7 @@
               label="种类"
               header-align="center"
               align="center"
-              width="120"
+              width="120px"
           >
           </el-table-column>
           <el-table-column
@@ -62,7 +115,7 @@
               label="地方"
               header-align="center"
               align="center"
-              width="120"
+              width="120px"
           >
           </el-table-column>
           <el-table-column
@@ -97,18 +150,12 @@
               <el-button
                   size="mini"
                   type="primary"
-                  @click="handleReview(scope.$index, scope.row)">详情
+                  @click="handleEdit(scope.$index, scope.row)">详情
               </el-button>
-              <el-button
-                  size="mini"
-                  type="danger"
-                  @click="handleDelete(scope.$index, scope.row)">删除
-              </el-button>
-              <el-button
-                  size="mini"
-                  type="primary"
-                  @click="handleUpdate(scope.$index, scope.row)">更新
-              </el-button>
+              <!--        <el-button-->
+              <!--            size="mini"-->
+              <!--            type="danger"-->
+              <!--            @click="handleDelete(scope.$index, scope.row)">删除</el-button>-->
             </template>
           </el-table-column>
         </el-table>
@@ -210,6 +257,14 @@ export default {
       total: 0,   //共几条数据
       row: [], //点详情查看的行数据
       dialogVisible: false,  //详情页面是否打开
+      search: {
+        time: "",
+        kind: "",
+        key: "",
+        type: ""
+      },
+      option1: ["证件", "生活用品", "学习用品", "电子设备"],
+      option2: ["寻物启事", "招领启事"],
     }
   },
   methods: {
@@ -247,24 +302,17 @@ export default {
           })
       // }
     },
-    handleReview(index, row) {
-      console.log("详情");
+    handleEdit(index, row) {
       console.log(index, row);
       this.row = row;
       this.dialogVisible = true;
     },
-    handleDelete(index,row){
-      console.log("删除");
-      console.log(index, row);
-    },
-    handleUpdate(index,row){
-      console.log("更新");
-      console.log(index, row);
-    },
-    handleAdd(){
-      console.log("发布公事");
-    }
+    searchByCondition() {
+      const result = this.search.date.replaceAll('/', '-');   //将2021/1/1转化为 2021-1-1
+      this.search.date = result;
+      console.log(this.search);
 
+    }
   },
   mounted() {
     this.load();
@@ -274,5 +322,7 @@ export default {
 }
 </script>
 <style>
-
+/*.el-table .el-table__cell{*/
+/*  padding: 0px;*/
+/*}*/
 </style>

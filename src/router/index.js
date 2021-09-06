@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/All.vue'
 import About from '../views/About.vue'
 import Personal from "../views/Personal";
 import Release from "../views/Release";
 import Login from "../views/Login";
-import Dongtai from "../views/Dongtai"
+import test from "../views/test";
 
 const routes = [
   {
@@ -13,8 +13,8 @@ const routes = [
     component: Login
   },
   {
-    path: '/home',
-    name: 'Home',
+    path: '/all',
+    name: 'All',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -30,7 +30,11 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: Release
+    component: Release,
+    meta:{
+      title:"我的发布",
+      type:'login'
+    }
   },
   {
     path: '/personal',
@@ -38,15 +42,11 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: Personal
-  },
-  {
-    path: '/dongtai',
-    name: 'Dongtai',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: Dongtai
+    component: Personal,
+    meta:{
+      title:"个人中心",
+      type:'login'
+    }
   },
   {
     path: '/about',
@@ -54,7 +54,16 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: About
+    component: About,
+    meta:{
+      title:"关于",
+      type:'login'
+    }
+  },
+  {
+    path:'/test',
+    name:"Test",
+    component: test
   }
 ]
 

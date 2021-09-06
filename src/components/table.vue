@@ -7,8 +7,6 @@
       fit="false"
       ref="filterTable"
       :data="tableData"
-      show-summary="true"
-      sum-text="合计"
       style="width: 100%">
     <el-table-column
         prop="id"
@@ -56,13 +54,13 @@
         align="center"
         width="180">
     </el-table-column>
-    <el-table-column
-        prop="state"
-        label="状态"
-        header-align="center"
-        align="center"
-    >
-    </el-table-column>
+<!--    <el-table-column-->
+<!--        prop="state"-->
+<!--        label="状态"-->
+<!--        header-align="center"-->
+<!--        align="center"-->
+<!--    >-->
+<!--    </el-table-column>-->
     <el-table-column
         prop="type"
         label="类型"
