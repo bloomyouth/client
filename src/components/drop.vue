@@ -1,6 +1,6 @@
 
 <template>
-  <el-dropdown @command="handleCommand" style="margin-right: -950px">
+  <el-dropdown @command="handleCommand" style="margin-right: -71.64vw">
   <span class="el-dropdown-link">
     {{username}}<i class="el-icon-arrow-down el-icon--right"></i>
   </span>

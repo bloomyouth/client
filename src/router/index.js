@@ -5,6 +5,9 @@ import Personal from "../views/Personal";
 import Release from "../views/Release";
 import Login from "../views/Login";
 import test from "../views/test";
+import Picture from "@/views/Picture";
+import MessageManage from "@/views/MessageManage";
+import UserManage from "@/views/UserManage";
 
 const routes = [
   {
@@ -64,6 +67,33 @@ const routes = [
     path:'/test',
     name:"Test",
     component: test
+  },
+  {
+    path:'/picture',
+    name:"Picture",
+    component: Picture,
+    meta:{
+      title:"图片库",
+      type:'login'
+    }
+  },
+  {
+    path:'/messageManage',
+    name:'MessageManage',
+    component: MessageManage,
+    meta:{
+      title:'信息管理',
+      type: 'login'
+    }
+  },
+  {
+    path:'/userManage',
+    name:'UserManage',
+    component: UserManage,
+    meta:{
+      title:'用户管理',
+      type: 'login'
+    }
   }
 ]
 

@@ -1,7 +1,7 @@
 <template>
   <el-container style="border: 1px solid gainsboro">
     <el-aside width="14vw">
-      <w_nav path="/about"/>
+      <w_nav2 path="/userManage"/>
     </el-aside>
 
     <el-container style="height: 95vh;">
@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import w_nav from '../components/nav.vue'
+import w_nav2 from '../components/nav2.vue'
 import w_drop from '../components/drop.vue'
 export default {
-  name: "About",
+  name: "UserManage",
   components:{
-    w_nav,
+    w_nav2,
     w_drop
   }
 }

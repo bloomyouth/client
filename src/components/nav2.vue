@@ -10,11 +10,8 @@
         router
         style="min-height: 95vh"
     >
-      <el-menu-item index="/personal" >个人中心</el-menu-item>
-      <el-menu-item index="/all">所有信息</el-menu-item>
-      <el-menu-item index="/release" >我的发布</el-menu-item>
-      <el-menu-item index="/picture">图片库</el-menu-item>
-      <el-menu-item index="/about">关于</el-menu-item>
+      <el-menu-item index="/userManage" >用户管理</el-menu-item>
+      <el-menu-item index="/messageManage">信息管理</el-menu-item>
     </el-menu>
 
   </div>
@@ -22,7 +19,7 @@
 
 <script>
 export default {
-  name: "Aside",
+  name: "Aside2",
   props:{
     path:String
   }

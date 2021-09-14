@@ -1,9 +1,9 @@
 <template>
   <!--  背景-->
-  <el-image :src="require('C:/Users/wql/Desktop/background/332795.png')" style="height: 545px;width: 100%"></el-image>
+  <el-image :src="require('C:/Users/wql/Desktop/background/332795.png')" style="height: 96.3vh;width: 99vw"></el-image>
   <!--  登录表单-->
-  <div style="position:absolute;right:50px;top:120px;width: 300px;padding: 15px;background-color: aliceblue">
-    <el-form label-position="left" label-width="80px" :model="this.userForm" :rules="loginRules">
+  <div style="position:absolute;right:3.77vw;top:21.2vh;width: 22.6vw;padding: 15px;background-color: aliceblue">
+    <el-form label-position="left" label-width="6vw" :model="this.userForm" :rules="loginRules">
       <el-form-item label="您的身份">
         <el-radio-group v-model="type" size="mini">
           <el-radio-button label="用户"></el-radio-button>
@@ -17,7 +17,7 @@
         <el-input v-model="this.userForm.password" type="password"></el-input>
       </el-form-item>
       <el-row>
-        <el-button type="primary" @click="login" style="margin-left: 120px" size="mini">登录</el-button>
+        <el-button type="primary" @click="login" style="margin-left: 9vw" size="mini">登录</el-button>
         <el-button type="primary" @click="dialogFormVisible=true" size="mini">注册</el-button>
       </el-row>
 
@@ -36,14 +36,14 @@
           class="demo-ruleForm"
       >
         <el-form-item label="用户名" prop="username">
-          <el-input v-model.number="registerForm.username" style="width: 300px;margin-left: -90px"></el-input>
+          <el-input v-model.number="registerForm.username" style="width: 18vw;margin-left: -3vw"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="pass" >
           <el-input
               type="password"
               v-model="registerForm.pass"
               autocomplete="off"
-              style="width: 300px;margin-left: -90px"
+              style="width: 18vw;margin-left: -3vw"
           ></el-input>
         </el-form-item>
         <el-form-item label="确认密码" prop="checkPass">
@@ -51,19 +51,19 @@
               type="password"
               v-model="registerForm.checkPass"
               autocomplete="off"
-              style="width: 300px;margin-left: -90px"
+              style="width: 18vw;margin-left: -3vw"
           ></el-input>
         </el-form-item>
         <el-form-item label="姓名" prop="name">
-          <el-input v-model.number="registerForm.name" style="width: 300px;margin-left: -90px"></el-input>
+          <el-input v-model.number="registerForm.name" style="width: 18vw;margin-left: -3vw"></el-input>
         </el-form-item>
         <el-form-item label="电话" prop="telephone">
-          <el-input v-model.number="registerForm.telephone" style="width: 300px;margin-left: -90px" placeholder="请输入手机号码"></el-input>
+          <el-input v-model.number="registerForm.telephone" style="width: 18vw;margin-left: -3vw" placeholder="请输入手机号码"></el-input>
         </el-form-item>
 
         <el-form-item>
-          <el-button type="primary" @click="submitRegisterForm('registerForm')" style="margin-left: -100px">提交</el-button>
-          <el-button @click="resetRegisterForm('registerForm')" style="margin-left: 20px">重置</el-button>
+          <el-button type="primary" @click="submitRegisterForm('registerForm')" style="margin-left: -5vw">提交</el-button>
+          <el-button @click="resetRegisterForm('registerForm')" style="margin-left: 1.1vw">重置</el-button>
         </el-form-item>
       </el-form>
     </el-dialog>
@@ -158,7 +158,7 @@ export default {
         target = "/all";  //跳转到用户界面
       } else {
         url = "api/login/manager";
-        target = "/all";   //跳转到管理员界面
+        target = "/messageManage";   //跳转到管理员界面
       }
 
       if (this.userForm.username !="" && this.userForm.password!="") {
@@ -205,8 +205,5 @@ export default {
 
 
 <style>
-.back {
-  background-image: url("../assets/104245.jpg");
 
-}
 </style>

@@ -1,34 +1,34 @@
 <template>
   <el-container style="border: 1px solid gainsboro">
-    <el-aside width="180px">
+    <el-aside width="14vw">
       <w_nav path="/all"/>
     </el-aside>
 
     <el-container style="height: 95vh;">
-      <el-header style="background-color:white" height="150px">
+      <el-header style="background-color:white" height="26vh">
         <w_drop/>
 
 
         <!--        筛选-->
-        <div style="margin: 20px;">
+        <div style="margin: 3.53vh 1.5vw 3.53vh 1.5vw;">
 
-          <div style="margin-left: -900px;margin-top: -10px">
+          <div style="margin-left: -67.87vw;margin-top: -1.77vw">
             <el-tag>按条件筛选</el-tag>
           </div>
 
           <!--        日期-->
-          <div style="margin-left: -500px;margin-top: -20px;">
+          <div style="margin-left: -37.7vw;margin-top: -3.53vh;">
             <span class="demonstration" style="color: #99a9bf">日期</span> &nbsp;
-            <el-date-picker v-model="this.search.time" type="date" placeholder="选择日期" style="width: 190px"
+            <el-date-picker v-model="this.search.time" type="date" placeholder="选择日期" style="width: 14.32vw"
                             format="YYYY 年 MM 月 DD 日" value-format="YYYY/MM/DD" size="mini">
             </el-date-picker>
           </div>
 
 
           <!--        类别-->
-          <div style="margin-left: -530px;margin-top: 20px;">
+          <div style="margin-left: -40vw;margin-top: 3.54vh;">
             <span class="demonstration" style="color: #99a9bf">物品种类</span> &nbsp;
-            <el-select v-model="this.search.kind" placeholder="请选择" style="width: 190px" clearable="true" size="mini">
+            <el-select v-model="this.search.kind" placeholder="请选择" style="width: 14.32vw" clearable="true" size="mini">
               <el-option
                   v-for="option in this.option1"
                   :value="option"
@@ -39,16 +39,16 @@
 
 
           <!--       关键词-->
-          <div style="margin-left:65px;margin-top: -25px">
+          <div style="margin-left:5vw;margin-top: -4.42vh">
             <span class="demonstration" style="color: #99a9bf">关键词</span> &nbsp;
-            <el-input v-model="this.search.key" placeholder="请输入内容" style="width: 190px;" size="mini" clearable="true"></el-input>
+            <el-input v-model="this.search.key" placeholder="请输入内容" style="width: 14.32vw" size="mini" clearable="true"></el-input>
           </div>
 
 
           <!--        类型-->
           <div style="margin-left: 80px;margin-top: -80px;">
             <span class="demonstration" style="color: #99a9bf">类型</span> &nbsp;
-            <el-select v-model="this.search.type" placeholder="请选择" style="width: 190px" clearable="true" size="mini">
+            <el-select v-model="this.search.type" placeholder="请选择" style="width: 14.32vw" clearable="true" size="mini">
               <el-option
                   v-for="option in this.option2"
                   :value="option"
@@ -59,7 +59,7 @@
 
 
           <!--        按钮-->
-          <div style="margin-left: 500px;margin-top: 25px">
+          <div style="margin-left: 37.7vw;margin-top: 4.4vh">
             <el-button type="primary" size="mini" @click="searchByCondition">查询</el-button>
           </div>
 
@@ -74,14 +74,17 @@
             fit="false"
             ref="filterTable"
             :data="tableData"
-            height="350px"
+            height="62vh"
+            show-overflow-tooltip="true"
+            style="width: 85vw;"
         >
           <el-table-column
               prop="id"
               label="编号"
               header-align="center"
               align="center"
-              width="80"
+              show-overflow-tooltip="true"
+              style="width: 6vw"
           >
           </el-table-column>
           <el-table-column
@@ -91,7 +94,7 @@
               show-overflow-tooltip="true"
               header-align="center"
               align="center"
-              width="120"
+              style="width: 9vw"
           >
           </el-table-column>
           <el-table-column
@@ -107,7 +110,8 @@
               label="种类"
               header-align="center"
               align="center"
-              width="120px"
+              style="width: 9vw"
+              show-overflow-tooltip="true"
           >
           </el-table-column>
           <el-table-column
@@ -115,7 +119,8 @@
               label="地方"
               header-align="center"
               align="center"
-              width="120px"
+              style="width: 9vw"
+              show-overflow-tooltip="true"
           >
           </el-table-column>
           <el-table-column
@@ -123,7 +128,9 @@
               label="发布者"
               header-align="center"
               align="center"
-              width="80">
+              show-overflow-tooltip="true"
+              style="width: 6vw"
+          >
           </el-table-column>
           <!--    <el-table-column-->
           <!--        prop="state"-->
@@ -137,7 +144,8 @@
               label="类型"
               header-align="center"
               align="center"
-              width="80"
+              style="width: 6vw"
+              show-overflow-tooltip="true"
               :formatter="formatter">
           </el-table-column>
 
@@ -145,6 +153,7 @@
               label="操作"
               header-align="center"
               align="center"
+              show-overflow-tooltip="true"
           >
             <template #default="scope">
               <el-button
@@ -179,44 +188,44 @@
             width="40%">
           <div>
 
-            <div style="margin-left: -220px">
+            <div style="margin-left: -16.6vw">
               <span class="demonstration" style="color: #99a9bf">编号</span> &nbsp;
-              <el-input v-model="this.row.id" style="width: 120px" size="mini"></el-input>
+              <el-input v-model="this.row.id" style="width: 9vw" size="mini"></el-input>
             </div>
 
-            <div style="margin-left: 130px;margin-top: -28px">
+            <div style="margin-left: calc(10vw + 5px) ;margin-top: -28px">
               <span class="demonstration" style="color: #99a9bf">时间</span> &nbsp;
-              <el-input v-model="this.row.time" style="width: 120px" size="mini"></el-input>
+              <el-input v-model="this.row.time" style="width: 9vw" size="mini"></el-input>
             </div>
 
-            <div style="margin-left: -220px;margin-top: 20px">
+            <div style="margin-left: -16.6vw;margin-top: 20px">
               <span class="demonstration" style="color: #99a9bf">种类</span> &nbsp;
-              <el-input v-model="this.row.kind" style="width: 120px" size="mini"></el-input>
+              <el-input v-model="this.row.kind" style="width: 9vw" size="mini"></el-input>
             </div>
 
-            <div style="margin-left: 130px;margin-top: -28px">
+            <div style="margin-left: calc(10vw + 5px);margin-top: -28px">
               <span class="demonstration" style="color: #99a9bf">发布者</span> &nbsp;
-              <el-input v-model="this.row.name" style="width: 120px" size="mini"></el-input>
+              <el-input v-model="this.row.name" style="width: 9vw" size="mini"></el-input>
             </div>
 
-            <div style="margin-left: -220px;margin-top: 20px">
+            <div style="margin-left: -16.6vw;margin-top: 20px">
               <span class="demonstration" style="color: #99a9bf">地方</span> &nbsp;
-              <el-input v-model="this.row.place" style="width: 120px" size="mini"></el-input>
+              <el-input v-model="this.row.place" style="width: 9vw" size="mini"></el-input>
             </div>
 
-            <div style="margin-left: 130px;margin-top: -28px">
+            <div style="margin-left: calc(10vw + 5px);margin-top: -28px">
               <span class="demonstration" style="color: #99a9bf">类型</span> &nbsp;
-              <el-input v-bind:model-value="this.row.type=='1'?'寻物启事':'招领启事'" style="width: 120px" size="mini"></el-input>
+              <el-input v-bind:model-value="this.row.type=='1'?'寻物启事':'招领启事'" style="width: 9vw" size="mini"></el-input>
             </div>
 
-            <div style="margin-left: -50px;margin-top: 40px">
+            <div style="margin-left: -3.77vw;margin-top: 40px">
               <div class="demonstration" style="color: #99a9bf;margin-top: -10px">描述</div> &nbsp;
               <el-input type="textarea" v-model="this.row.detail" autosize="true"
-                        style="width: 250px;margin-top: 20px" size="mini">
+                        style="width: 18.85vw;margin-top: 20px" size="mini">
               </el-input>
             </div>
 
-            <div style="margin-left: 60px;margin-top: 20px;width: 300px;height: 250px">
+            <div style="margin-left:4.5vw;margin-top: 3.5vh;width: 22.6vw;height: 44.2vh">
               <span class="demonstration" style="color: #99a9bf">图片</span> &nbsp;
               <el-image :src="require('C:/Users/wql/Desktop/background/332795.png')"></el-image>
             </div>
